@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wilson Forest Park Homes</title>
+<meta name="description" content="New mass-timber single-family homes in a traditional townhome form, adjacent to Forest Park, in Portland's best Northwest neighborhood">
+<meta property="og:title" content="Wilson Forest Park Homes">
+<meta property="og:description" content="New mass-timber single-family homes in a traditional townhome form, adjacent to Forest Park, in Portland's best Northwest neighborhood">
+<meta property="og:image" content="img/wilson-streetscape-fall-2024.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Libre+Franklin:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  /* Layout idea: a quiet, photo-led single page. Navy ink and brick buff are taken
+     from the homes' own doors and masonry; timber honey marks links and rules. */
+  :root {
+    color-scheme: light;
+    --paper: #ffffff;
+    --wash: #f4f1ea;          /* pale brick-buff wash for alternate bands */
+    --ink: #1b2838;           /* the navy of the doors and window frames */
+    --ink-soft: #4d5a69;
+    --timber: #a9722f;        /* exposed timber ceiling */
+    --rule: #ddd6c8;
+    --display: "EB Garamond", Georgia, "Times New Roman", serif;
+    --body: "Libre Franklin", "Helvetica Neue", Arial, sans-serif;
+    --measure: 62ch;
+    --gutter: clamp(18px, 4vw, 56px);
+    --band: clamp(56px, 9vw, 120px);
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  img { display: block; max-width: 100%; height: auto; }
+  a { color: inherit; text-decoration-color: var(--timber); text-underline-offset: 3px; text-decoration-thickness: 1.5px; }
+  a:hover { color: var(--timber); }
+  :focus-visible { outline: 2px solid var(--timber); outline-offset: 3px; }
+  h1, h2 {
+    font-family: var(--display);
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: -0.005em;
+    margin: 0;
+    text-wrap: balance;
+  }
+  h1 { font-size: clamp(2.5rem, 5.6vw, 4.5rem); }
+  h2 { font-size: clamp(2rem, 4vw, 3.1rem); }
+  p { margin: 0; max-width: var(--measure); }
+  .wrap { max-width: 1240px; margin: 0 auto; padding: 0 var(--gutter); }
+  .stack { display: flex; flex-direction: column; gap: 1.15em; }
+  .band { padding: var(--band) 0; }
+  .band--wash { background: var(--wash); }
+
+  /* Header */
+  .site-header {
+    position: sticky; top: 0; z-index: 10;
+    background: rgba(255,255,255,0.94);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--rule);
+  }
+  .site-header .wrap {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 16px; min-height: 68px; flex-wrap: wrap; padding-top: 10px; padding-bottom: 10px;
+  }
+  .wordmark {
+    font-family: var(--body); font-weight: 600; font-size: 0.82rem;
+    letter-spacing: 0.2em; text-transform: uppercase; text-decoration: none;
+  }
+  .button {
+    display: inline-block; padding: 0.7em 1.5em;
+    background: var(--ink); color: #fff; text-decoration: none;
+    font-size: 0.8rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase;
+    border: 1px solid var(--ink);
+  }
+  .button:hover { background: transparent; color: var(--ink); }
+
+  /* Hero */
+  .hero { display: grid; grid-template-columns: 0.8fr 1.2fr; align-items: center; }
+  .hero__text {
+    display: flex; flex-direction: column; justify-content: center; gap: 1.6rem;
+    padding: clamp(40px, 7vw, 96px) var(--gutter);
+  }
+  .hero__text p { font-size: 1.12rem; color: var(--ink-soft); max-width: 46ch; }
+  .hero__photo { aspect-ratio: 4 / 3; }
+  .hero__photo img { width: 100%; height: 100%; object-fit: cover; }
+
+  /* Lifestyle strip */
+  .strip { display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px; }
+  .strip img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; }
+
+  /* Intro */
+  .intro { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 6vw, 88px); align-items: start; }
+  .intro .lede { font-family: var(--display); font-size: clamp(1.5rem, 2.5vw, 2rem); line-height: 1.3; }
+
+  /* Gallery */
+  .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .gallery button, .plans button {
+    all: unset; display: block; cursor: zoom-in; overflow: hidden; background: var(--wash);
+  }
+  .gallery button:focus-visible, .plans button:focus-visible { outline: 2px solid var(--timber); outline-offset: 3px; }
+  .gallery img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; transition: transform .5s ease; }
+  .gallery button:hover img { transform: scale(1.03); }
+
+  /* Amenities */
+  .split { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: clamp(28px, 6vw, 88px); align-items: start; }
+  .features { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--rule); }
+  .features li { padding: 0.85em 0; border-bottom: 1px solid var(--rule); }
+  .plans-title {
+    font-family: var(--body); font-size: 0.8rem; font-weight: 600;
+    letter-spacing: 0.16em; text-transform: uppercase; margin: 0 0 1rem;
+  }
+  .plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: clamp(36px, 5vw, 64px); }
+  .plans figure { margin: 0; display: flex; flex-direction: column; gap: 0.7rem; }
+  .plans button { border: 1px solid var(--rule); background: #fff; }
+  .plans img { width: 100%; aspect-ratio: 1600 / 952; object-fit: contain; }
+  .plans figcaption { font-size: 0.95rem; }
+
+  /* Location + standard */
+  .feature { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 6vw, 88px); align-items: center; }
+  .feature--flip > :first-child { order: 2; }
+  .feature img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+  .kicker { font-family: var(--display); font-style: italic; font-size: 1.35rem; color: var(--timber); }
+
+  /* Contact */
+  .contact { text-align: left; }
+  .contact .email { font-family: var(--display); font-size: clamp(1.6rem, 3vw, 2.3rem); }
+
+  /* Footer */
+  .site-footer { border-top: 1px solid var(--rule); padding: 44px 0 56px; text-align: center; }
+  .site-footer .wordmark { display: block; margin-bottom: 0.6rem; }
+  .site-footer p { margin: 0 auto; color: var(--ink-soft); font-family: var(--display); font-style: italic; font-size: 1.15rem; }
+
+  /* Lightbox */
+  dialog.lightbox {
+    border: 0; padding: 0; background: transparent;
+    max-width: 96vw; max-height: 96vh; overflow: visible;
+  }
+  dialog.lightbox::backdrop { background: rgba(15, 22, 32, 0.9); }
+  dialog.lightbox img { max-width: 96vw; max-height: 88vh; object-fit: contain; margin: 0 auto; background: #fff; }
+  .lightbox__bar { display: flex; justify-content: space-between; gap: 12px; margin-top: 12px; }
+  .lightbox__bar button {
+    font: 500 0.78rem var(--body); letter-spacing: 0.14em; text-transform: uppercase;
+    color: #fff; background: transparent; border: 1px solid rgba(255,255,255,0.5);
+    padding: 0.65em 1.2em; cursor: pointer;
+  }
+  .lightbox__bar button:hover { background: #fff; color: var(--ink); }
+
+  @media (max-width: 860px) {
+    .hero, .intro, .split, .feature { grid-template-columns: 1fr; }
+    .feature--flip > :first-child { order: 0; }
+    
+    .strip { grid-template-columns: repeat(3, 1fr); }
+    .gallery { grid-template-columns: repeat(2, 1fr); }
+    .plans { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 460px) {
+    .gallery { grid-template-columns: 1fr; }
+    .wordmark { font-size: 0.72rem; letter-spacing: 0.16em; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .gallery img { transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="wordmark" href="#top">Wilson Forest Park Homes</a>
+    <!-- Contact removed for now; restore with the Contact section below.
+    <a class="button" href="#contact">Contact</a> -->
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- Section 1: Intro -->
+  <section class="hero">
+    <div class="hero__text">
+      <h1>Modern living at the foothills of Forest Park</h1>
+      <p>Welcome to Wilson Forest Park Homes – new mass-timber homes, ideally situated to live the best of Northwest Portland.</p>
+    </div>
+    <div class="hero__photo">
+      <img src="img/wilson-streetscape-fall-2024.jpg" alt="Row of Wilson Forest Park homes along the street in fall, with brick facades, front stoops and pumpkins on the steps" width="2000" height="1500">
+    </div>
+  </section>
+
+  <div class="strip" aria-label="Life around Forest Park">
+    <img src="img/shutterstock-608739416.jpg" alt="Runner on a sunlit forest trail" loading="lazy">
+    <img src="img/shutterstock-1771603400.jpg" alt="Cyclist riding through morning light" loading="lazy">
+    <img src="img/shutterstock-1416911009.jpg" alt="Portland at sunset with Mount Hood beyond" loading="lazy">
+    <img src="img/portland-forest-park.jpg" alt="Mist over the firs of Forest Park" loading="lazy">
+    <img src="img/wilson-hero.jpg" alt="Architectural sketch of a Wilson home over a forest view" loading="lazy">
+    <img src="img/shutterstock-507755494.jpg" alt="Latte art being poured at a Portland cafe" loading="lazy">
+  </div>
+
+  <section class="band">
+    <div class="wrap intro">
+      <p class="lede">Embrace the outdoors. Enjoy your morning coffee on your kitchen patio. Host sunset happy hours or workout sessions overlooking the West Hills from your large private rooftop deck. Connect with your neighbors on your welcoming front stoop.</p>
+      <p>When it’s time to venture out, hike and bike from your new home at the foothills of Portland’s beloved Forest Park. Explore the art and microbrews of the evolving NW Industrial District. Stroll to the boutiques, restaurants &amp; cafes along NW Thurman and NW 23rd. And halve your commute thanks to easy access to all corners of Portland via car, bike, and public transport.</p>
+    </div>
+  </section>
+
+  <section class="wrap" aria-label="Photo gallery">
+    <div class="gallery" id="gallery">
+      <button type="button" data-full="img/01-2915-nw-wilson-st-1.jpg"><img src="img/01-2915-nw-wilson-st-1.jpg" alt="Living room with exposed mass-timber ceiling and tall windows" loading="lazy"></button>
+      <button type="button" data-full="img/05-2915-nw-wilson-st-4.jpg"><img src="img/05-2915-nw-wilson-st-4.jpg" alt="Dining and sitting area beneath a timber ceiling" loading="lazy"></button>
+      <button type="button" data-full="img/08-2915-nw-wilson-st-7.jpg"><img src="img/08-2915-nw-wilson-st-7.jpg" alt="Kitchen with island and door to the patio" loading="lazy"></button>
+      <button type="button" data-full="img/09-2915-nw-wilson-st-8.jpg"><img src="img/09-2915-nw-wilson-st-8.jpg" alt="White kitchen open to the living area" loading="lazy"></button>
+      <button type="button" data-full="img/03-2915-nw-wilson-st-2.jpg"><img src="img/03-2915-nw-wilson-st-2.jpg" alt="Sunlit living room with oak floors" loading="lazy"></button>
+      <button type="button" data-full="img/12-2915-nw-wilson-st-11.jpg"><img src="img/12-2915-nw-wilson-st-11.jpg" alt="Bedroom with corner windows and timber ceiling" loading="lazy"></button>
+      <button type="button" data-full="img/14-2915-nw-wilson-st-13.jpg"><img src="img/14-2915-nw-wilson-st-13.jpg" alt="Bathroom with double vanity and brass fixtures" loading="lazy"></button>
+      <button type="button" data-full="img/13-2915-2bnw-2bwilson-2bst-12.jpg"><img src="img/13-2915-2bnw-2bwilson-2bst-12.jpg" alt="Bathroom with glass shower" loading="lazy"></button>
+      <button type="button" data-full="img/16-2915-nw-wilson-st-15.jpg"><img src="img/16-2915-nw-wilson-st-15.jpg" alt="Bathroom with tub and window" loading="lazy"></button>
+      <button type="button" data-full="img/19-2915-nw-wilson-st-18.jpg"><img src="img/19-2915-nw-wilson-st-18.jpg" alt="Long living space with seating area" loading="lazy"></button>
+      <button type="button" data-full="img/22-2915-nw-wilson-st-21.jpg"><img src="img/22-2915-nw-wilson-st-21.jpg" alt="Room with its own exterior door" loading="lazy"></button>
+      <button type="button" data-full="img/wilson-exterior-2.jpg"><img src="img/wilson-exterior-2.jpg" alt="Front stoop, navy door and brick facade" loading="lazy"></button>
+    </div>
+  </section>
+
+  <!-- Section 2: Period charm & modern amenities -->
+  <section class="band">
+    <div class="wrap">
+      <div class="split">
+        <h2>Period charm &amp; modern amenities</h2>
+        <ul class="features">
+          <li>4 to 5 bedrooms, 3+ bathrooms</li>
+          <li>Large private outdoor decks &amp; patios</li>
+          <li>Attached private garages, with 60-amp Tier 2 EV charging</li>
+          <li>Open &amp; flexible floor plans with 10’ high exposed mass–timber ceilings</li>
+          <li>Spacious mudroom/entryways</li>
+          <li>ADU (apt/office/flex space) with separate entrance and address</li>
+          <li>No shared walls; no HOA dues</li>
+        </ul>
+      </div>
+      <div class="plans" id="plans">
+        <p class="plans-title" style="grid-column: 1 / -1; margin: 0;">Floor plan examples:</p>
+        <figure>
+          <button type="button" data-full="img/floor-plan-1.png"><img src="img/floor-plan-1.png" alt="Floor plan, four-bedroom home 1" loading="lazy"></button>
+          <figcaption>4 BR (~2800 sq ft)</figcaption>
+        </figure>
+        <figure>
+          <button type="button" data-full="img/floor-plan-2.png"><img src="img/floor-plan-2.png" alt="Floor plan, four-bedroom home 2" loading="lazy"></button>
+          <figcaption>4 BR (~2650 sq ft)</figcaption>
+        </figure>
+        <figure>
+          <button type="button" data-full="img/floor-plan-3.png"><img src="img/floor-plan-3.png" alt="Floor plan, five-bedroom home 3" loading="lazy"></button>
+          <figcaption>5 BR (~3450 sq ft)</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: Location -->
+  <section class="band band--wash">
+    <div class="wrap feature">
+      <img src="img/shutterstock-1143756443.jpg" alt="Sunbeams across a trail in Forest Park" loading="lazy">
+      <div class="stack">
+        <h2>“I’ll be there in 10 minutes.”</h2>
+        <p class="kicker">Location. Location. Location.</p>
+        <p>Wilson Forest Park Homes in Northwest Portland include private attached garages and are just blocks from top schools, public parks, nature trails, bustling commercial districts, and multiple major routes connecting you to your destination.</p>
+        <p><a href="https://www.google.com/maps/dir//Wilson+Forest+Park+Townhomes,+2915+NW+Wilson+St,+Portland,+OR+97210/@45.5336742,-122.7261456,14.7z/data=!4m16!1m6!3m5!1s0x54950962e6096911:0x42a49ac6c1ac04b!2sWilson+Forest+Park+Townhomes!8m2!3d45.5373925!4d-122.7112721!4m8!1m0!1m5!1m1!1s0x54950962e6096911:0x42a49ac6c1ac04b!2m2!1d-122.7112721!2d45.5373925!3e2?hl=en-US" target="_blank" rel="noopener">Time your commute to and from NW Wilson St using Google Maps.</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: Built to a higher standard -->
+  <section class="band">
+    <div class="wrap feature feature--flip">
+      <img src="img/wilson-garage-1.jpg" alt="Garage with exposed timber structure and an EV charger" loading="lazy">
+      <div class="stack">
+        <h2>Built to a higher standard</h2>
+        <p>Wilson Forest Park Homes demonstrate how new home construction can contribute to a healthier climate while empowering local circular economic growth through the use of <a href="https://www.thinkwood.com/products-and-systems/mass-timber/cross-laminated-timber-clt-handbook" target="_blank" rel="noopener">mass timber (CLT)</a>. Learn more about the advantages and benefits of CLT in this <a href="https://www.sciencedirect.com/science/article/pii/S2666165920300260/pdfft?download=true&amp;isDTMRedir=true" target="_blank" rel="noopener">study (PDF)</a>.</p>
+        <p>The homes are engineered to reduce your ongoing energy costs and consumption via <a href="https://www.energy.gov/energysaver/heat-and-cool/heat-pump-systems" target="_blank" rel="noopener">heat pump heating &amp; cooling</a> and <a href="https://www.energy.gov/energysaver/heat-pump-water-heaters" target="_blank" rel="noopener">heat pump water heaters</a> - reducing your environmental impact by up to 50%.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 5: Contact (removed for now; uncomment to restore)
+  <section class="band band--wash" id="contact">
+    <div class="wrap contact stack">
+      <h2>Contact</h2>
+      <p>Questions about Wilson Forest Park Homes or how they were built? Learn more in the <a href="https://www.thinkwood.com/construction-projects/wilson-forest-park-townhomes" target="_blank" rel="noopener">Think Wood project profile</a>.</p>
+      <p class="email">Email <a href="mailto:info@wilsonpdx.com">info@wilsonpdx.com</a>.</p>
+    </div>
+  </section>
+  -->
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span class="wordmark">– Wilson Forest Park Homes –</span>
+    <p>Traditional townhome designs; modern comfort &amp; function.</p>
+  </div>
+</footer>
+
+<dialog class="lightbox" id="lightbox" aria-label="Enlarged image">
+  <img id="lightbox-img" src="" alt="">
+  <div class="lightbox__bar">
+    <span>
+      <button type="button" id="lb-prev">Previous</button>
+      <button type="button" id="lb-next">Next</button>
+    </span>
+    <button type="button" id="lb-close">Close</button>
+  </div>
+</dialog>
+
+<script>
+(function () {
+  var dialog = document.getElementById('lightbox');
+  var big = document.getElementById('lightbox-img');
+  var group = [], index = 0;
+  function show(i) {
+    index = (i + group.length) % group.length;
+    var thumb = group[index].querySelector('img');
+    big.src = group[index].getAttribute('data-full');
+    big.alt = thumb ? thumb.alt : '';
+  }
+  ['gallery', 'plans'].forEach(function (id) {
+    var buttons = Array.prototype.slice.call(document.querySelectorAll('#' + id + ' button[data-full]'));
+    buttons.forEach(function (btn, i) {
+      btn.addEventListener('click', function () {
+        group = buttons; show(i);
+        if (dialog.showModal) { dialog.showModal(); } else { dialog.setAttribute('open', ''); }
+      });
+    });
+  });
+  document.getElementById('lb-prev').addEventListener('click', function () { show(index - 1); });
+  document.getElementById('lb-next').addEventListener('click', function () { show(index + 1); });
+  document.getElementById('lb-close').addEventListener('click', function () { dialog.close(); });
+  dialog.addEventListener('click', function (e) { if (e.target === dialog) dialog.close(); });
+  dialog.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowLeft') show(index - 1);
+    if (e.key === 'ArrowRight') show(index + 1);
+  });
+})();
+</script>
+</body>
+</html>
