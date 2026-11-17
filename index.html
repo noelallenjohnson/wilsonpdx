@@ -110,7 +110,13 @@
   .gallery button:hover img { transform: scale(1.03); }
 
   /* Amenities */
-  .split { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: clamp(28px, 6vw, 88px); align-items: start; }
+  .split { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: clamp(28px, 6vw, 88px); align-items: stretch; }
+  .split__head {
+    min-height: 280px; padding: clamp(20px, 3vw, 36px);
+    background:
+      linear-gradient(rgba(255,255,255,0.62), rgba(255,255,255,0.62)),
+      url("img/wilson-window-brick.jpg") center / cover no-repeat;
+  }
   .features { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--rule); }
   .features li { padding: 0.85em 0; border-bottom: 1px solid var(--rule); }
   .plans-title {
@@ -230,7 +236,7 @@
   <section class="band">
     <div class="wrap">
       <div class="split">
-        <h2>Period charm &amp; modern amenities</h2>
+        <div class="split__head"><h2>Period charm &amp; modern amenities</h2></div>
         <ul class="features">
           <li>Open &amp; flexible floor plans with 10’ high exposed mass–timber ceilings that make every room feel warm, calm and healthy</li>
           <li>4 to 5 bedrooms, 3+ bathrooms</li>
