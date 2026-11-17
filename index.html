@@ -83,7 +83,9 @@
   .button:hover { background: transparent; color: var(--ink); }
 
   /* Hero */
-  .hero { display: grid; grid-template-columns: 0.8fr 1.2fr; align-items: center; }
+  .hero { display: grid; grid-template-columns: 1fr 1fr; align-items: center; }
+  .hero h1 { font-size: clamp(2.2rem, 4.2vw, 3.6rem); }
+  .hero h1 span { display: block; }
   .hero__text {
     display: flex; flex-direction: column; justify-content: center; gap: 1.6rem;
     padding: clamp(40px, 7vw, 96px) var(--gutter);
@@ -192,7 +194,7 @@
   <!-- Section 1: Intro -->
   <section class="hero">
     <div class="hero__text">
-      <h1>Modern living</h1>
+      <h1><span>Modern living</span> <span>at Forest Park</span> <span>in NW Neighborhood</span></h1>
       <p>Welcome to Wilson Forest Park Homes – new homes with warm, exposed timber ceilings, ideally situated to live the best of Northwest Portland.</p>
     </div>
     <div class="hero__photo">
