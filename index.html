@@ -138,7 +138,10 @@
   .kicker { font-family: var(--display); font-style: italic; font-size: 1.35rem; color: var(--timber); }
 
   /* Contact */
+  .contact-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: clamp(28px, 6vw, 88px); align-items: center; }
   .contact { text-align: left; }
+  .contact a { overflow-wrap: anywhere; }
+  .contact-sketch { width: 100%; max-width: 460px; justify-self: end; opacity: 0.5; mix-blend-mode: multiply; }
   .contact .email { font-family: var(--display); font-size: clamp(1.6rem, 3vw, 2.3rem); }
 
   /* Footer */
@@ -162,7 +165,8 @@
   .lightbox__bar button:hover { background: #fff; color: var(--ink); }
 
   @media (max-width: 860px) {
-    .hero, .intro, .split, .feature { grid-template-columns: 1fr; }
+    .hero, .intro, .split, .feature, .contact-grid { grid-template-columns: 1fr; }
+    .contact-sketch { justify-self: start; max-width: 320px; }
     .feature--flip > :first-child { order: 0; }
     
     .strip { grid-template-columns: repeat(3, 1fr); }
@@ -294,11 +298,14 @@
 
   <!-- Section 5: Contact -->
   <section class="band band--wash" id="contact">
-    <div class="wrap contact stack">
-      <h2>Contact</h2>
-      <p>Professionally managed by KBC, our neighborhood’s local, proven experts.</p>
-      <p class="email"><a href="mailto:wilsontownhomes@kbcmgmt.com">wilsontownhomes@kbcmgmt.com</a></p>
-      <p><a href="https://www.kbcmgmt.com/property/wilson-townhomes" target="_blank" rel="noopener">Find out if homes are available for rent</a></p>
+    <div class="wrap contact-grid">
+      <div class="contact stack">
+        <h2>Contact</h2>
+        <p>Professionally managed by KBC, our neighborhood’s local, proven experts.</p>
+        <p class="email"><a href="mailto:wilsontownhomes@kbcmgmt.com">wilsontownhomes@kbcmgmt.com</a></p>
+        <p>Find out if homes are available for rent: <a href="https://www.kbcmgmt.com/property/wilson-townhomes" target="_blank" rel="noopener">https://www.kbcmgmt.com/property/wilson-townhomes</a></p>
+      </div>
+      <img class="contact-sketch" src="img/wilson-elevations-sketch.png" alt="Architect’s hand-drawn street and woonerf elevations of a Wilson home" width="1253" height="1140" loading="lazy">
     </div>
   </section>
 
